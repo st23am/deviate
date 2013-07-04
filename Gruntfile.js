@@ -37,6 +37,12 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
+      compass: {
+        files: [
+          'app/styles/**/*.{scss,sass}'
+        ],
+        tasks: 'compass reload'
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -112,6 +118,19 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         '<%= yeoman.app %>/scripts/{,*/}*.js'
       ]
+    },
+    // compile .scss/.sass to .css using Compass
+    compass: {
+      dist: {
+        // http://compass-style.org/help/tutorials/configuration-reference/#configuration-properties
+        options: {
+          cssDir: '.tmp/styles',
+          sassDir: 'app/styles',
+          imagesDir: 'app/images',
+          javascriptsDir: '.tmp/scripts',
+          force: true
+        }
+      }
     },
     coffee: {
       dist: {
@@ -234,7 +253,8 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
-        'coffee:dist'
+        'coffee:dist',
+        'compass:dist'
       ],
       test: [
         'coffee'
