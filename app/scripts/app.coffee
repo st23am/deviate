@@ -8,27 +8,26 @@ angular.module('deviateApp', ['firebase'])
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
-        controller: ListCtrl
+        controller: 'ListCtrl'
       .when '/edit/:characterId',
         templateUrl: 'views/detail.html'
-        controller:  EditCtrl
+        controller:  'EditCtrl'
       .when '/new',
         templateUrl: 'views/detail.html'
-        controller:  CreateCtrl
+        controller:  'CreateCtrl'
       .otherwise
         redirectTo: '/'
 
-  ListCtrl = ($scope, Characters) ->
+  .controller 'ListCtrl', ($scope, Characters) ->
     $scope.characters = Characters
 
-  CreateCtrl = ($scope, $location, $timeout, Characters) ->
+  .controller 'CreateCtrl', ($scope, $location, $timeout, Characters) ->
     $scope.save = ->
       Characters.add $scope.character, ->
         $timeout ->
           $location.path "/"
 
-
-  EditCtrl = ($scope, $location, $routeParams, angularFire, fbURL) ->
+  .controller 'EditCtrl', ($scope, $location, $routeParams, angularFire, fbURL) ->
     angularFire(fbURL + $routeParams.characterId, $scope, "remote", {}).then ->
       $scope.character = angular.copy($scope.remote)
       $scope.character.$id = $routeParams.characterId
