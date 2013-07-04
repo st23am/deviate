@@ -1,9 +1,21 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <input type="text" ng-model="search" class="search-query" placeholder="Search">
+  <table>
+    <thead>
+    <tr>
+      <th>Character</th>
+      <th>Description</th>
+      <th><a href="#/new">New</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="character in characters | filter:search | orderBy:'name'">
+      <td>{{character.name}}</td>
+      <td>{{character.description}}</td>
+      <td>
+        <a href="#/edit/{{character.$id}}"><i class="icon-pencil"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
