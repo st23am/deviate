@@ -20,6 +20,7 @@ angular.module('deviateApp', ['firebase'])
 
   ListCtrl = ($scope, Characters) ->
     $scope.characters = Characters
+
   CreateCtrl = ($scope, $location, $timeout, Characters) ->
     $scope.save = ->
       Characters.add $scope.character, ->
