@@ -125,6 +125,7 @@ module.exports = function (grunt) {
         // http://compass-style.org/help/tutorials/configuration-reference/#configuration-properties
         options: {
           cssDir: '.tmp/styles',
+          require: 'zurb-foundation',
           sassDir: 'app/styles',
           imagesDir: 'app/images',
           javascriptsDir: '.tmp/scripts',
