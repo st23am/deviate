@@ -16,29 +16,82 @@
                   Required</span>
             </div>
           </div>
-          <div class="large-6 columns">
-            <div class="characterAttribute">
-              <label>Class</label>
-              <input type="text" name="ac" ng-model="character.ac">
-            </div>
+          <div class="large-3 columns">
+            <label>Level</label>
+            <input type="text" name="level" ng-model="character.level">
+          </div>
+          <div class="large-3 columns">
+            <label>Class</label>
+            <input type="text" name="ac" ng-model="character.characerClass">
           </div>
         </div>
         <div class="row">
-          <div class="large-6 columns">
+          <div class="large-3 columns">
             <div class="characterAttribute">
               <label>AC</label>
               <input type="text" name="ac" ng-model="character.ac">
             </div>
           </div>
-          <div class="large-6 columns">
+          <div class="large-3 columns">
             <div class="characterAttribute">
               <label>HP</label>
               <input type="text" name="hp" ng-model="character.hp">
             </div>
           </div>
+          <div class="large-6 columns">
+            <div class="characterAttribute">
+              <label>Occupation</label>
+              <input type="text" name="occupation" ng-model="character.occupation">
+            </div>
+          </div>
         </div>
-        <label>Description</label>
-        <textarea name="description" ng-model="character.description"></textarea>
+        <div class="row">
+          <div class="large-2 columns">
+            <div class="attributes">
+              <label>Str</label>
+              <input type="text" name="strength" ng-model="character.strength">
+              <label>Agi</label>
+              <input type="text" name="agility" ng-model="character.agility">
+              <label>Sta</label>
+              <input type="text" name="stamina" ng-model="character.stamina">
+              <label>Per</label>
+              <input type="text" name="personality" ng-model="character.personality">
+              <label>Int</label>
+              <input type="text" name="intlligence" ng-model="character.intelligence">
+              <label>Luck</label>
+              <input type="text" name="luck" ng-model="character.luck">
+            </div>
+          </div>
+          <div class="large-2 columns">
+            <div class="modifers">
+              <label>mod</label>
+              <input type="text" name="strength_mod" value="{{ modifier(character.strength) }}" disabled>
+              <label>mod</label>
+              <input type="text" name="agility_mod" value="{{ modifier(character.agility) }}" disabled>
+              <label>mod</label>
+              <input type="text" name="stamina_mod" value="{{ modifier(character.stamina) }}" disabled>
+              <label>mod</label>
+              <input type="text" name="personality_mod" value="{{ modifier(character.personality) }}" disabled>
+              <label>mod</label>
+              <input type="text" name="intlligence_mod" value="{{ modifier(character.intelligence) }}" disabled>
+              <label>mod</label>
+              <input type="text" name="luck_mod" value="{{ modifier(character.luck) }}" disabled>
+            </div>
+          </div>
+          <div class="large-2 columns">
+            <label>R:</label>
+            <input type="text" name="reflex" ng-model="character.reflex">
+            <label>F:</label>
+            <input type="text" name="fort" ng-model="character.fort">
+            <label>W:</label>
+            <input type="text" name="will" ng-model="character.will">
+          </div>
+          <div class="large-6 columns">
+            <label>Description</label>
+            <textarea name="description" ng-model="character.description"></textarea>
+          </div>
+        </div>
+      </div>
 
         <br>
         <a href="#/" class="button">Back</a>
