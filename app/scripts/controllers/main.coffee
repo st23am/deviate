@@ -5,6 +5,10 @@ angular.module('deviateApp.controllers', [])
     $scope.characters = Characters
 
   .controller 'CreateCtrl', ($scope, $location, $timeout, Characters) ->
+
+    $scope.modifier = (score)->
+      ability_modifier(score)
+
     $scope.save = ->
       Characters.add $scope.character, ->
         $timeout ->
@@ -26,13 +30,15 @@ angular.module('deviateApp.controllers', [])
         $location.path "/"
 
       $scope.modifier = (score)->
-        score = parseInt(score)
-        return "-3" if score == 3
-        return "-2" if score == 4 || score == 5
-        return "-1" if score == 6 || score == 7 || score == 8
-        return "0" if score == 9 || score == 10 || score == 11 || score == 12
-        return "+1" if score == 13 || score == 14 || score == 15
-        return "+2" if score == 16 || score == 17
-        return "+3" if score == 18
+        ability_modifier(score)
 
+ability_modifier = (score) ->
+  score = parseInt(score)
+  return "-3" if score == 3
+  return "-2" if score == 4 || score == 5
+  return "-1" if score == 6 || score == 7 || score == 8
+  return "0" if score == 9 || score == 10 || score == 11 || score == 12
+  return "+1" if score == 13 || score == 14 || score == 15
+  return "+2" if score == 16 || score == 17
+  return "+3" if score >= 18
 

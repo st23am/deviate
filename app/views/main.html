@@ -1,10 +1,11 @@
-<div class"row">
+<div class="row">
   <div class="large-12 columns">
-    <h3> Characters </h3>
+    <h1> DCC Initiative Tracker </h1>
   </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-4 columns character_section">
+    <h3> Characters </h3>
     <div class="panel">
       <input type="text" ng-model="search" class="search-query" placeholder="Search">
       <table>
@@ -27,5 +28,18 @@
       </table>
     </div>
   </div>
+  <div class="large-8 columns initiative_section">
+    <h3>Initiative</h3>
+      <div ng-repeat="character in characters | orderBy:'initScore'">
+        <div class="panel">
+          <a href="#/edit/{{character.$id}}">{{character.name}}</a>
+          <span class="init_attr">
+            HP: {{character.hp}}
+          </span>
+          <span class="init_attr">
+            AC: {{character.ac}}
+          </span>
+        </div>
+      </div>
+  </div>
 </div>
-

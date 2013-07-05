@@ -79,26 +79,47 @@
             </div>
           </div>
           <div class="large-2 columns">
-            <label>R:</label>
+            <label>Reflex:</label>
             <input type="text" name="reflex" ng-model="character.reflex">
-            <label>F:</label>
+            <label>Fort:</label>
             <input type="text" name="fort" ng-model="character.fort">
-            <label>W:</label>
+            <label>Will:</label>
             <input type="text" name="will" ng-model="character.will">
+            <label>Init Mod</label>
+            <input type="text" name="init_mod" ng-model="character.initMod">
+            <label>Speed</label>
+            <input type="text" name="speed" ng-model="character.speed">
+            <label>Action Die</label>
+            <input type="text" name="action_die" ng-model="character.actionDie">
+            <label>Crit Die</label>
+            <input type="text" name="crit_die" ng-model="character.critDie">
           </div>
           <div class="large-6 columns">
-            <label>Description</label>
-            <textarea name="description" ng-model="character.description"></textarea>
+            <label>XP</label>
+            <textarea name="experience" ng-model="character.experience"></textarea>
+            <label>Lucky Roll</label>
+            <textarea name="luck_roll" ng-model="character.luckyRoll"></textarea>
+            <label>Equipped Armor</label>
+            <textarea name="equipped_armor" ng-model="character.equippedArmor"></textarea>
+            <label>Primary Weapon:</label>
+            <textarea name="primary_weapon" ng-model="character.primaryWeapon"></textarea>
+            <label>Secondary Weapon:</label>
+            <textarea name="seondary_weapon" ng-model="character.secondaryWeapon"></textarea>
+            <label>Equipment</label>
+            <textarea name="equipment" ng-model="character.equipment"></textarea>
+            <label>Languages</label>
+            <textarea name="languages" ng-model="character.languages"></textarea>
+            <label>Notes</label>
+            <textarea name="notes" ng-model="character.notes"></textarea>
           </div>
         </div>
-      </div>
-
         <br>
         <a href="#/" class="button">Back</a>
         <button ng-click="save()" ng-disabled="isClean() || myForm.$invalid"
                 class="button butn-primary">Save</button>
         <button ng-click="destroy()"
                 ng-show="character.$id" class="button alert">Delete</button>
+      </div>
       </form>
     </div>
   </div>
