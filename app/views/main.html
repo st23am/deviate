@@ -17,10 +17,10 @@
         </thead>
         <tbody>
         <tr ng-repeat="character in characters | filter:search | orderBy:'name'">
-          <td>{{character.name}}</td>
+          <td> <a href="#/edit/{{character.$id}}">{{character.name}}</a></td>
           <td>{{character.description}}</td>
           <td>
-            <a href="#/edit/{{character.$id}}">Edit</a>
+            <a href="#">Add</a>
           </td>
         </tr>
         </tbody>
