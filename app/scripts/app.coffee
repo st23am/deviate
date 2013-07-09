@@ -20,4 +20,3 @@ deviateApp = angular.module('deviateApp', ['firebase', 'deviateApp.controllers']
       .otherwise
         redirectTo: '/'
 
-
