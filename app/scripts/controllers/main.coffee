@@ -6,6 +6,7 @@ angular.module('deviateApp.controllers', [])
     $scope.initiative = Initiative
 
     $scope.addToInitiative = (character) ->
+      character.initScore = 0
       $scope.initiative.push(character)
 
     $scope.removeFromInitiative = (character) ->
