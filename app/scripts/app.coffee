@@ -3,6 +3,9 @@ deviateApp = angular.module('deviateApp', ['firebase', 'deviateApp.controllers']
   .value("fbURL", "https://dcccharacters.firebaseio.com/")
   .factory "Characters", (angularFireCollection,  fbURL) ->
       angularFireCollection(fbURL)
+  .factory "Initiative", ->
+    []
+
   .config ($routeProvider) ->
     $routeProvider
       .when '/',

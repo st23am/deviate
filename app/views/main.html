@@ -21,7 +21,7 @@
           <td> <a href="#/edit/{{character.$id}}">{{character.name}}</a></td>
           <td>{{character.description}}</td>
           <td>
-            <a href="#">Add</a>
+            <a href="#" ng-click="addToInitiative(character)">Add</a>
           </td>
         </tr>
         </tbody>
@@ -30,7 +30,7 @@
   </div>
   <div class="large-8 columns initiative_section">
     <h3>Initiative</h3>
-      <div ng-repeat="character in characters | orderBy:'initScore'">
+      <div ng-repeat="character in initiative | orderBy:'initScore'">
         <div class="panel">
           <a href="#/edit/{{character.$id}}">{{character.name}}</a>
           <span class="init_attr">
@@ -47,6 +47,9 @@
           </span>
           <span class="init_attr">
             Will: {{character.will}}
+          </span>
+          <span class="init_attr">
+            <a href="#" ng-click="removeFromInitiative(character)">X</a>
           </span>
         </div>
       </div>

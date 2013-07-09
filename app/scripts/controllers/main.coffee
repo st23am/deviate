@@ -1,8 +1,15 @@
 'use strict'
 
 angular.module('deviateApp.controllers', [])
-  .controller 'ListCtrl', ($scope, Characters) ->
+  .controller 'ListCtrl', ($scope, Characters, Initiative) ->
     $scope.characters = Characters
+    $scope.initiative = Initiative
+
+    $scope.addToInitiative = (character) ->
+      $scope.initiative.push(character)
+
+    $scope.removeFromInitiative = (character) ->
+      $scope.initiative.splice($scope.initiative.indexOf(character),1)
 
   .controller 'CreateCtrl', ($scope, $location, $timeout, Characters) ->
 
@@ -34,7 +41,7 @@ angular.module('deviateApp.controllers', [])
 
 ability_modifier = (score) ->
   score = parseInt(score)
-  return "-3" if score <= 3
+  return "-3" if score == 3
   return "-2" if score == 4 || score == 5
   return "-1" if score == 6 || score == 7 || score == 8
   return "0" if score == 9 || score == 10 || score == 11 || score == 12
