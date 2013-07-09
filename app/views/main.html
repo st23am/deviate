@@ -4,14 +4,14 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-4 columns character_section">
+  <div class="large-3 columns character_section">
     <h3> Characters </h3>
     <div class="panel">
       <div class="row">
-        <div class="large-3 columns">
+        <div class="large-4 columns">
           <a href="#/new" class="small success button">New</a>
         </div>
-        <div class="large-9 columns">
+        <div class="large-8 columns">
           <input type="text" ng-model="search" class="search-query" placeholder="Search">
         </div>
       </div>
@@ -19,14 +19,12 @@
         <thead>
         <tr>
           <th>Character</th>
-          <th>Description</th>
           <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="character in characters | filter:search | orderBy:'name'">
           <td> <a href="#/edit/{{character.$id}}">{{character.name}}</a></td>
-          <td>{{character.description}}</td>
           <td>
             <a href="#" ng-click="addToInitiative(character)">Add</a>
           </td>
@@ -35,7 +33,7 @@
       </table>
     </div>
   </div>
-  <div class="large-8 columns initiative_section">
+  <div class="large-9 columns initiative_section">
     <h3>Initiative</h3>
       <div ng-repeat="character in initiative | orderBy:'initScore':true">
         <div class="panel">
@@ -43,7 +41,7 @@
             <div class="large-2 columns">
               <input type=number ng-model="character.initScore" class="initscore"/>
             </div>
-            <div class="large-10 columns">
+            <div class="large-9 columns">
               <a href="#/edit/{{character.$id}}">{{character.name}}</a>
               <span class="init_attr">
                 HP: {{character.hp}}
@@ -61,8 +59,14 @@
                 Will: {{character.will}}
               </span>
               <span class="init_attr">
+                Luck: {{character.luck}}
+              </span>
+            </div>
+            <div class="large-1 columns">
+              <span class="close_init">
                 <a href="#" ng-click="removeFromInitiative(character)">X</a>
-            </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
