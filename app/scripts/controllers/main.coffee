@@ -8,9 +8,11 @@ angular.module('deviateApp.controllers', [])
     $scope.addToInitiative = (character) ->
       character.initScore = parseInt(character.initMod)
       $scope.initiative.push(character)
+      localStorage.setItem("initiative", angular.toJson($scope.initiative))
 
     $scope.removeFromInitiative = (character) ->
       $scope.initiative.splice($scope.initiative.indexOf(character),1)
+      localStorage.setItem("initiative", angular.toJson($scope.initiative))
 
   .controller 'CreateCtrl', ($scope, $location, $timeout, Characters) ->
 
